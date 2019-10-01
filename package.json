@@ -1,0 +1,24 @@
+{
+  "name": "stocks-watcher",
+  "version": "1.0.0",
+  "description": "A GPW stocks watcher",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-mac": "electron-packager . — platform=darwin"
+  },
+  "repository": "https://github.com/mateuszdyminski/stocks",
+  "keywords": [
+    "Stock Market",
+    "GPW"
+  ],
+  "author": "Mateusz Dyminski",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^6.0.10"
+  },
+  "dependencies": {
+    "moment": "^2.24.0",
+    "request": "^2.88.0"
+  }
+}

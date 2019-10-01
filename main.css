@@ -1,0 +1,48 @@
+body {
+  background: black;
+  color: white;
+  font-family: "avenir next", avenir, sans-serif;
+}
+.info {
+  border-bottom: 1px solid white;
+}
+.info .key {
+  color: #4C559F
+}
+.info .value {
+  color: #2BA50E
+}
+
+.stock {
+  padding: 0.3em 0.2em 0.3em 0.2em;
+  border-bottom: 1px solid white;
+}
+.stock .header {
+  font-size: 0.8em;
+  cursor: pointer;
+}
+.stock .price {
+  font-size: 0.7em;
+}
+.stock .key {
+  font-size: 0.6em;
+}
+.stock .value {
+  font-size: 0.6em;
+  color: orange;
+}
+.stock .last-transaction {
+  line-height: 0.7em;
+}
+.stock .volumen {
+  line-height: 0.7em;
+}
+.stock .up {
+  color: green;
+}
+.stock .no-change {
+  color: grey;
+}
+.stock .down {
+  color: red;
+}
