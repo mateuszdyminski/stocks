@@ -3,26 +3,33 @@ body {
   color: white;
   font-family: "avenir next", avenir, sans-serif;
 }
+.row {
+  display: flex;
+}
+.column {
+  flex: 50%;
+}
 .info {
-  border-bottom: 1px solid white;
+  font-size: 0.7em;
+  border-bottom: 1px solid #19999F;
 }
 .info .key {
-  color: #4C559F
+  color: #19999F
 }
 .info .value {
   color: #2BA50E
 }
-
 .stock {
-  padding: 0.3em 0.2em 0.3em 0.2em;
-  border-bottom: 1px solid white;
+  padding: 0.2em 0.1em 0.25em 0.1em;
+  border-bottom: 1px solid #19999F;
 }
 .stock .header {
   font-size: 0.8em;
   cursor: pointer;
 }
 .stock .price {
-  font-size: 0.7em;
+  font-size: 1em;
+  float: right;
 }
 .stock .key {
   font-size: 0.6em;
@@ -45,4 +52,16 @@ body {
 }
 .stock .down {
   color: red;
+}
+.stock .signals {
+  font-size: 0.6em;
+}
+.stock .signals .padding-right {
+  padding-right: 0.8em;
+}
+.stock .signals .signal {
+  color: #A49B09;
+}
+.stock .summary {
+  font-size: 0.6em;
 }

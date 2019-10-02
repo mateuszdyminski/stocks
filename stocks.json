@@ -1,112 +1,130 @@
 {
   "refreshInterval": 100,
   "notifications": true,
+  "atSignals": true,
   "stocks": [
     {
       "name": "Livechat",
       "id": "9537",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "Ambra",
       "id": "221",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "PKP Cargo",
       "id": "8789",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "JSW",
       "id": "3972",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "CCC",
       "id": "348",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "Orlen",
       "id": "118",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "PZU",
       "id": "41",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "Oponeo",
       "id": "308",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "WIG20",
       "id": "792",
       "index": true,
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "CDProject",
       "id": "66",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "11Bit",
       "id": "3567",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "TenSquareGames",
       "id": "27169",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "Tauron",
       "id": "231",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "Platige Image",
       "id": "5730",
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "S&P 500",
       "id": "4331",
       "index": true,
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "SSECOMP",
       "id": "4333",
       "index": true,
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     },
     {
       "name": "DAX",
       "id": "4336",
       "index": true,
       "lastPrice": 0.0,
-      "meta": {}
+      "meta": {},
+      "indicators": {}
     }
   ]
 }

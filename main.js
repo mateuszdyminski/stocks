@@ -11,7 +11,7 @@ function createWindow () {
   
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 186,
+    width: 484,
     height: height,
     title: "Stocks Watcher",
     webPreferences: {

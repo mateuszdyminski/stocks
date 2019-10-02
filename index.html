@@ -2,25 +2,29 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <div class="info">
-      <div class="clock">
-        <span class="key">Time: </span>
-        <span class="value" id="clock_value"></span>
+      <div class="row">
+        <div class="clock column">
+          <span class="key">Time: </span>
+          <span class="value" id="clock_value"></span>
+        </div>
+        <div class="counter column">
+          <span class="key">Number of stocks: </span>
+          <span class="value" id="counter_value"></span>
+        </div>
       </div>
-      <div class="counter">
-        <span class="key">Number of stocks: </span>
-        <span class="value" id="counter_value"></span>
-      </div>
-      <div class="last_refresh">
-        <span class="key">Last refresh: </span>
-        <span class="value" id="last_refresh_value"></span>
-      </div>
-      <div class="refresh_interval">
-        <span class="key">Refresh interval: </span>
-        <span class="value" id="refresh_interval"></span>
+      <div class="row">
+        <div class="last_refresh column">
+          <span class="key">Last refresh: </span>
+          <span class="value" id="last_refresh_value"></span>
+        </div>
+        <div class="refresh_interval column">
+          <span class="key">Refresh interval: </span>
+          <span class="value" id="refresh_interval"></span>
+        </div>
       </div>
     </div>
     <div class="stocks" id="stocks"></div>
