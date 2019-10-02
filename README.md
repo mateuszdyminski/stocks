@@ -5,7 +5,7 @@ Simple electron App to watch constantly of current price of Stocks on [GPW](http
 Sample view:
 
 <p align="center">
-  <img src="stocks_watcher.png" width="100">
+  <img src="stocks_watcher.png" width="300">
 </p>
 
 ## Features
