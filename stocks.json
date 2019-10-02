@@ -1,5 +1,6 @@
 {
   "refreshInterval": 100,
+  "notifications": true,
   "stocks": [
     {
       "name": "Livechat",
@@ -50,8 +51,9 @@
       "meta": {}
     },
     {
-      "name": "Kruk",
-      "id": "3827",
+      "name": "WIG20",
+      "id": "792",
+      "index": true,
       "lastPrice": 0.0,
       "meta": {}
     },
@@ -86,14 +88,23 @@
       "meta": {}
     },
     {
-      "name": "Lena",
-      "id": "149",
+      "name": "S&P 500",
+      "id": "4331",
+      "index": true,
       "lastPrice": 0.0,
       "meta": {}
     },
     {
-      "name": "PCC Rokita",
-      "id": "9820",
+      "name": "SSECOMP",
+      "id": "4333",
+      "index": true,
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "DAX",
+      "id": "4336",
+      "index": true,
       "lastPrice": 0.0,
       "meta": {}
     }

@@ -42,34 +42,46 @@ function getMeta(company) {
     });
 }
 
-function update() {
-    conf.stocks.forEach(elem => getMeta(elem).then(renderMeta));
+async function update() {
+    const nodes = await Promise.all(conf.stocks.map(elem => getMeta(elem).then(createHtml)));
+    render(nodes.sort(compareNode));
+
     conf.lastCheck = moment().unix();
+    if (conf.notifications) {
+        let length = conf.stocks.length;
+        let time = moment.unix(conf.lastCheck).format('HH:mm:ss');
+        new Notification("Stocks Watcher Updated", {
+            title: "Stocks Watcher Updated",
+            body: `${length} Stocks Has Been Updated at ${time}`,
+            silent: true
+        });
+    }
 }
 
-function renderMeta(company) {
-    let node = document.getElementById(company.id)
-    let newStock = false;
-    if (node) {
-        while (node.hasChildNodes()) {
-            node.removeChild(node.firstChild);
-         }
-    } else {
-        newStock = true;
-        node = document.createElement("div");
+function render(stocks) {
+    let node = document.getElementById("stocks");
+    while (node.hasChildNodes()) {
+        node.removeChild(node.firstChild);
+    }
+    stocks.forEach((s) => node.appendChild(s.node));
+}
+
+function createHtml(company) {
+    return new Promise((resolve, reject) => {
+        let node = document.createElement("div");
         node.className = "stock";
         node.id = company.id;    
-    }
-    
-    node.appendChild(renderHeader(company));
-    node.appendChild(renderPrice(company));
-    node.appendChild(renderLastTransaction(company));
-    node.appendChild(renderVolumen(company));
+        
+        node.appendChild(renderHeader(company));
+        node.appendChild(renderPrice(company));
+        node.appendChild(renderLastTransaction(company));
+        let volNode = renderVolumen(company);
+        if (volNode) {
+            node.appendChild(renderVolumen(company));
+        }
 
-    if (newStock) {
-        let elems = document.getElementsByClassName("stocks");
-        elems[0].appendChild(node);
-    }
+        resolve({company: company, node: node});
+    });
 }
 
 function renderHeader(company) {
@@ -151,7 +163,11 @@ function renderLastTransaction(company) {
 }
 
 function renderVolumen(company) {
-    vol = company.meta.mc
+    let vol = company.meta.mc
+    let volFmt = currencyFormat(vol);
+    if (volFmt === "") {
+        return null;
+    }
 
     let node = document.createElement("div");
     node.className = "volumen";
@@ -159,7 +175,7 @@ function renderVolumen(company) {
     label.innerHTML = "volumen: ";
     label.className = "key";
     let value = document.createElement("span");
-    value.innerHTML = currencyFormat(vol);
+    value.innerHTML = volFmt;
     value.className = "value";
 
     node.appendChild(label);
@@ -169,8 +185,22 @@ function renderVolumen(company) {
 }
 
 function currencyFormat(num) {
-    return num.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    if (num) {
+        return num.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    } 
+    return "";
 }
+
+function compareNode(a, b) {
+    if (a.company.index && !b.company.index)
+        return -1;
+    if (a.company.index && b.company.index)
+        return a.company.name.localeCompare(b.company.name);
+    if (b.company.index && !a.company.index)
+        return 1;
+
+    return a.company.name.localeCompare(b.company.name);
+ }
 
 function start() {
     let home = process.env.HOME;
