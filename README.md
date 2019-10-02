@@ -36,8 +36,16 @@ npm start
 
 ### Build Stocks Watcher as single file to run on different OSes
 
+For mac:
+
 ```bash
-npm start
+npm run build-mac
+```
+
+For linux:
+
+```bash
+npm run build-linux
 ```
 
 ## Configure GPW Stocks Watcher
