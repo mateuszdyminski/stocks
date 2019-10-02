@@ -1,23 +1,22 @@
-var request = require('request');
-var moment = require('moment');
+const request = require('request');
+const moment = require('moment');
 const { shell } = require('electron');
+const fs = require('fs');
 
-// start updater
-setInterval(update, 100000); // 100s
-
-// start info refresher
-setInterval(setInfo, 1000); // 1s
-let lastCheck;
+let conf = {};
 
 function setInfo() {
     let clock = document.getElementById("clock_value");
     clock.innerHTML = moment().format('HH:mm:ss');
 
     let counter = document.getElementById("counter_value");
-    counter.innerHTML = toWatch.length;
+    counter.innerHTML = conf.stocks.length;
     
     let last = document.getElementById("last_refresh_value");
-    last.innerHTML = moment.unix(lastCheck).format('HH:mm:ss');
+    last.innerHTML = moment.unix(conf.lastCheck).format('HH:mm:ss');
+
+    let interval = document.getElementById("refresh_interval");
+    interval.innerHTML = conf.refreshInterval + "s";
 }
 
 function getMeta(company) {
@@ -44,8 +43,8 @@ function getMeta(company) {
 }
 
 function update() {
-    toWatch.forEach(elem => getMeta(elem).then(renderMeta));
-    lastCheck = moment().unix();
+    conf.stocks.forEach(elem => getMeta(elem).then(renderMeta));
+    conf.lastCheck = moment().unix();
 }
 
 function renderMeta(company) {
@@ -173,103 +172,37 @@ function currencyFormat(num) {
     return num.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-let toWatch = [
-    {
-        name: "Livechat",
-        id: "9537",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "Ambra",
-        id: "221",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "PKP Cargo",
-        id: "8789",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "JSW",
-        id: "3972",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "CCC",
-        id: "348",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "Orlen",
-        id: "29136",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "PZU",
-        id: "41",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "Oponeo",
-        id: "308",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "Kruk",
-        id: "17347",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "CDProject",
-        id: "66",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "11Bit",
-        id: "3567",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "TenSquareGames",
-        id: "27169",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "Tauron",
-        id: "231",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "Platige Image",
-        id: "5730",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "Lena",
-        id: "149",
-        lastPrice: 0.0,
-        meta: {}
-    },
-    {
-        name: "PCC Rokita",
-        id: "9820",
-        lastPrice: 0.0,
-        meta: {}
-    }
-]
+function start() {
+    let home = process.env.HOME;
+    let init = function(configuration) {
+        conf = configuration;
 
-update();
+        // start info refresher
+        setInterval(setInfo, 1000); // 1s
+
+        // start first updating manually 
+        update();
+    
+        // start updater each
+        setInterval(update, conf.refreshInterval * 1000);
+    }
+
+    fs.readFile(`${home}/.stocks.json`, (err, data) => {
+        if (err)  {
+            console.log("no .stocks.json file in HOME directory, using default stocks file");
+            fs.readFile(`stocks.json`, (err, data) => {
+                if (err)  {
+                    console.log("can't read default stocks.json. exiting...");
+                    process.exit(1);
+                }
+                let conf = JSON.parse(data);
+                init(conf);
+            });
+        } else {
+            let conf = JSON.parse(data);
+            init(conf);
+        }
+    });
+}
+
+start();

@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build-mac": "electron-packager . — platform=darwin"
+    "build-mac": "electron-packager . —-platform=darwin",
+    "build-linux": "electron-packager . —-platform=linux"
   },
   "repository": "https://github.com/mateuszdyminski/stocks",
   "keywords": [
@@ -15,7 +16,8 @@
   "author": "Mateusz Dyminski",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^6.0.10"
+    "electron": "^6.0.10",
+    "electron-packager": "^14.0.6"
   },
   "dependencies": {
     "moment": "^2.24.0",

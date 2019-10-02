@@ -1,0 +1,101 @@
+{
+  "refreshInterval": 100,
+  "stocks": [
+    {
+      "name": "Livechat",
+      "id": "9537",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "Ambra",
+      "id": "221",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "PKP Cargo",
+      "id": "8789",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "JSW",
+      "id": "3972",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "CCC",
+      "id": "348",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "Orlen",
+      "id": "118",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "PZU",
+      "id": "41",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "Oponeo",
+      "id": "308",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "Kruk",
+      "id": "3827",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "CDProject",
+      "id": "66",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "11Bit",
+      "id": "3567",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "TenSquareGames",
+      "id": "27169",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "Tauron",
+      "id": "231",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "Platige Image",
+      "id": "5730",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "Lena",
+      "id": "149",
+      "lastPrice": 0.0,
+      "meta": {}
+    },
+    {
+      "name": "PCC Rokita",
+      "id": "9820",
+      "lastPrice": 0.0,
+      "meta": {}
+    }
+  ]
+}
