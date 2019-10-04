@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build-mac": "electron-packager . —-platform=darwin",
-    "build-linux": "electron-packager . —-platform=linux"
+    "build-mac": "electron-packager . --platform=darwin",
+    "build-linux": "electron-packager . --platform=linux"
   },
   "repository": "https://github.com/mateuszdyminski/stocks",
   "keywords": [
