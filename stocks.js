@@ -98,7 +98,6 @@ function createHtml(company) {
         node.id = company.id;
 
         node.appendChild(renderHeader(company));
-        // node.appendChild(renderPrice(company));
         node.appendChild(renderLastTransaction(company));
         let volNode = renderVolumen(company);
         if (volNode) {
@@ -138,15 +137,15 @@ function renderPrice(company) {
     let wrap = document.createElement("span");
     let newElText = "";
     if (change > 0) {
-        newElText = "▲ ";
+        newElText = " ▲ ";
         wrap.className = "up";
         wrapChange.className = "up";
     } else if (change === 0) {
-        newElText = "▬ ";
+        newElText = " ▬ ";
         wrap.className = "no-change";
         wrapChange.className = "no-change";
     } else {
-        newElText = "▼ ";
+        newElText = " ▼ ";
         wrap.className = "down";
         wrapChange.className = "down";
     }
