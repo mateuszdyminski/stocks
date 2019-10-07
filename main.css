@@ -53,11 +53,14 @@ body {
 .stock .down {
   color: red;
 }
+.stock .padding-right {
+  padding-right: 0.8em;
+}
+.stock .padding-right02 {
+  padding-right: 0.2em;
+}
 .stock .signals {
   font-size: 0.6em;
-}
-.stock .signals .padding-right {
-  padding-right: 0.8em;
 }
 .stock .signals .signal {
   color: #A49B09;
