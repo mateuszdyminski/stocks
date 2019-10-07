@@ -149,6 +149,7 @@ function renderPrice(company) {
         wrap.className = "down";
         wrapChange.className = "down";
     }
+    wrapChange.className += " padding-right02";
     let textNode = document.createTextNode(newElText);
     wrap.appendChild(textNode);
 
