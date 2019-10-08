@@ -77,7 +77,7 @@ async function update() {
         let time = moment.unix(conf.lastCheck).format('HH:mm:ss');
         new Notification("Stocks Watcher Updated", {
             title: "Stocks Watcher Updated",
-            body: `${length} Stocks Has Been Updated at ${time}`,
+            body: `${length} Stocks Have Been Updated at ${time}`,
             silent: true
         });
     }
