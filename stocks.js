@@ -222,10 +222,15 @@ function renderIndicators(company) {
     label.innerHTML = 'signals: ';
 
     node.appendChild(label);
-    renderIndicator(node, company.indicators.averages.SMA15);
-    renderIndicator(node, company.indicators.indicators.RSI);
-    renderIndicator(node, company.indicators.indicators.STS);
-    renderIndicator(node, company.indicators.indicators.MACD);
+
+    try {
+        renderIndicator(node, company.indicators.averages.SMA15);
+        renderIndicator(node, company.indicators.indicators.RSI);
+        renderIndicator(node, company.indicators.indicators.STS);
+        renderIndicator(node, company.indicators.indicators.MACD);
+    } catch (e) {
+        console.log("can't render indicators", e);
+    }
 
     return node;
 }
@@ -247,49 +252,53 @@ function renderFinalIndicator(company) {
     let node = document.createElement("div");
     node.className = "summary";
 
-    let label = document.createElement("span");
-    label.innerHTML = 'summary: ';
+    try {
+        let label = document.createElement("span");
+        label.innerHTML = 'summary: ';
 
-    let value = document.createElement("span");
-    value.innerHTML = company.indicators.summary.summary.action_name;
-    value.className = getClass(company.indicators.summary.summary.action_value);
+        let value = document.createElement("span");
+        value.innerHTML = company.indicators.summary.summary.action_name;
+        value.className = getClass(company.indicators.summary.summary.action_value);
 
-    let valueDesc = document.createElement("span");
+        let valueDesc = document.createElement("span");
 
-    let buy = document.createElement("span");
-    buy.innerHTML = company.indicators.summary.summary.buy;
-    buy.className = "up";
+        let buy = document.createElement("span");
+        buy.innerHTML = company.indicators.summary.summary.buy;
+        buy.className = "up";
 
-    let sell = document.createElement("span");
-    sell.innerHTML = company.indicators.summary.summary.sell;
-    sell.className = "down";
+        let sell = document.createElement("span");
+        sell.innerHTML = company.indicators.summary.summary.sell;
+        sell.className = "down";
 
-    let neutral = document.createElement("span");
-    neutral.innerHTML = company.indicators.summary.summary.neutral;
-    neutral.className = "no-change";
+        let neutral = document.createElement("span");
+        neutral.innerHTML = company.indicators.summary.summary.neutral;
+        neutral.className = "no-change";
 
-    let slash = document.createElement("span");
-    slash.innerHTML = " / ";
-    let slash2 = document.createElement("span");
-    slash2.innerHTML = " / ";
+        let slash = document.createElement("span");
+        slash.innerHTML = " / ";
+        let slash2 = document.createElement("span");
+        slash2.innerHTML = " / ";
 
-    let left = document.createElement("span");
-    left.innerHTML = "  ( ";
+        let left = document.createElement("span");
+        left.innerHTML = "  ( ";
 
-    let right = document.createElement("span");
-    right.innerHTML = " )";
+        let right = document.createElement("span");
+        right.innerHTML = " )";
 
-    valueDesc.appendChild(left);
-    valueDesc.appendChild(buy);
-    valueDesc.appendChild(slash);
-    valueDesc.appendChild(neutral);
-    valueDesc.appendChild(slash2);
-    valueDesc.appendChild(sell);
-    valueDesc.appendChild(right);
+        valueDesc.appendChild(left);
+        valueDesc.appendChild(buy);
+        valueDesc.appendChild(slash);
+        valueDesc.appendChild(neutral);
+        valueDesc.appendChild(slash2);
+        valueDesc.appendChild(sell);
+        valueDesc.appendChild(right);
 
-    node.appendChild(label);
-    node.appendChild(value);
-    node.appendChild(valueDesc);
+        node.appendChild(label);
+        node.appendChild(value);
+        node.appendChild(valueDesc);
+    } catch (e) {
+        console.log("can't render final indicator", e);
+    }
 
     return node;
 }
